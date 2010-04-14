@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Nexus HDL"
+            id="de.sf.nexushdl.ui">
+      </category>
+      <view
+            name="Nexus HDL"
+            icon="icons/sample.gif"
+            category="de.sf.nexushdl.ui"
+            class="de.sf.nexushdl.ui.views.NexusHDLView"
+            id="de.sf.nexushdl.ui.views.NexusHDLView">
+      </view>
+   </extension>
+
+</plugin>
