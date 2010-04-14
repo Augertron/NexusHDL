@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Nexus HDL Help
+Bundle-SymbolicName: de.sf.nexushdl.help; singleton:=true
+Bundle-Version: 0.1.0
+Bundle-Vendor: Michael Bodenbach
