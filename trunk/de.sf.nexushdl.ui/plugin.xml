@@ -3,18 +3,60 @@
 <plugin>
 
    <extension
-         point="org.eclipse.ui.views">
+         point="org.eclipse.ui.commands">
       <category
-            name="Nexus HDL"
-            id="de.sf.nexushdl.ui">
+            id="de.sf.nexushdl.ui.commands.category"
+            name="Sample Category">
       </category>
-      <view
-            name="Nexus HDL"
-            icon="icons/sample.gif"
-            category="de.sf.nexushdl.ui"
-            class="de.sf.nexushdl.ui.views.NexusHDLView"
-            id="de.sf.nexushdl.ui.views.NexusHDLView">
-      </view>
+      <command
+            categoryId="de.sf.nexushdl.ui.commands.category"
+            id="de.sf.nexushdl.ui.commands.startBuild"
+            name="Start Build">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="de.sf.nexushdl.ui.handlers.SampleHandler"
+            commandId="de.sf.nexushdl.ui.commands.startBuild">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="de.sf.nexushdl.ui.commands.startBuild"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="de.sf.nexushdl.ui.menus.nexushdl"
+               label="NexusHDL"
+               mnemonic="M">
+            <command
+                  commandId="de.sf.nexushdl.ui.commands.startBuild"
+                  id="de.sf.nexushdl.ui.menus.startBuild"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="de.sf.nexushdl.ui.toolbars.sampleToolbar">
+            <command
+                  commandId="de.sf.nexushdl.ui.commands.startBuild"
+                  icon="icons/sample.gif"
+                  id="de.sf.nexushdl.ui.toolbars.startBuild"
+                  tooltip="Build the Chip">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
 
 </plugin>
