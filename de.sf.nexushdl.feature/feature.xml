@@ -2,11 +2,11 @@
 <feature
       id="de.sf.nexushdl"
       label="Nexus HDL Feature"
-      version="0.1.0"
+      version="0.1.0.qualifier"
       provider-name="Michael Bodenbach">
 
    <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+      NexusHDL extends VHDL and Verilog development process with Eclipse.
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -25,6 +25,13 @@
 
    <plugin
          id="de.sf.nexushdl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.sf.nexushdl.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
