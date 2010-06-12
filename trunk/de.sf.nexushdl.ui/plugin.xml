@@ -58,5 +58,16 @@
          </toolbar>
       </menuContribution>
    </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="de.sf.nexushdl.ui.editors.SynthesisMultiPageEditor"
+            contributorClass="de.sf.nexushdl.ui.editors.MultiPageEditorContributor"
+            extensions="xst"
+            icon="icons/sample.gif"
+            id="de.sf.nexushdl.ui.editors.SynthesisMultiPageEditor"
+            name="Synthesis Properties">
+      </editor>
+   </extension>
 
 </plugin>
