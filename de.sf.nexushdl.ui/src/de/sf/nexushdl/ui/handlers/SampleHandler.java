@@ -1,7 +1,5 @@
 package de.sf.nexushdl.ui.handlers;
 
-import java.io.IOException;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -9,9 +7,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-
-
 import de.sf.nexushdl.core.InvokeException;
+import de.sf.nexushdl.core.Synthesis;
 
 /**
  * Our sample handler extends AbstractHandler, an IHandler base class.
@@ -35,21 +32,16 @@ public class SampleHandler extends AbstractHandler {
 				window.getShell(),
 				"Nexus HDL User Interface",
 				"Build start");
-
+		
+		Synthesis SynthesisTool = new Synthesis();
+		
 		try {
-			ProcessBuilder pb = new ProcessBuilder("kate");
-/*		 Map<String, String> env = pb.environment();
-		 env.put("VAR1", "myValue");
-		 env.remove("OTHERVAR");
-		 env.put("VAR2", env.get("VAR1") + "suffix");
-		 pb.directory(new File("myDir"));*/
-			Process p = pb.start();
-		 
+			SynthesisTool.Use_XST();
 		}
-		catch(IOException e) {
+		catch(InvokeException e) {
 			System.out.println(e.getMessage());
 		}
-
+		
 		return null;
 	}		
 }

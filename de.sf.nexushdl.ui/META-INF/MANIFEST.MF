@@ -1,12 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Nexus HDL User Interface
+Bundle-Name: NexusHDL User Interface
 Bundle-SymbolicName: de.sf.nexushdl.ui; singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: de.sf.nexushdl.ui.Activator
 Bundle-Vendor: Michael Bodenbach
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.sf.nexushdl.core
+ de.sf.nexushdl.core,
+ org.eclipse.jface.text,
+ org.eclipse.core.resources,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Nexus HDL core functions
+Bundle-Name: NexusHDL core functions
 Bundle-SymbolicName: de.sf.nexushdl.core;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: de.sf.nexushdl.core.plugin
 Bundle-Vendor: Michael Bodenbach
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: de.sf.nexushdl.core
