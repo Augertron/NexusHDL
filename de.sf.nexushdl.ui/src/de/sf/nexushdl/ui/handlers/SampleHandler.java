@@ -3,6 +3,7 @@ package de.sf.nexushdl.ui.handlers;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -40,6 +41,9 @@ public class SampleHandler extends AbstractHandler {
 		}
 		catch(InvokeException e) {
 			System.out.println(e.getMessage());
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return null;

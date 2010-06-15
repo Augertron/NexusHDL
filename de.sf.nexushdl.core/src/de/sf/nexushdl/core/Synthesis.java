@@ -22,7 +22,9 @@
 package de.sf.nexushdl.core;
 
 import java.io.*;
-import java.util.*;
+
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 
 /**
  * blablabla
@@ -37,11 +39,24 @@ public class Synthesis {
 	public Synthesis() {
 	}
 
+	private IResource	root = null;			///< The root resource that is that will be starting point for doxyfiles search.
+	
 	/**
 	 * Run Xilinx XST for synthesis
+	 * 
+	 * @throws CoreException, InvokeException 
 	 */
-	public void Use_XST () throws InvokeException {
+	public void Use_XST () throws CoreException, InvokeException {
 		try {
+			ResourceCollector	collector = root != null ? ResourceCollector.run(root) : ResourceCollector.run();
+			
+			if( collector.isEmpty() == false ) {
+				System.out.println("No HDL files found!");
+			}
+			else {
+				System.out.println(collector);
+			}
+			
 			String[]	command = new String[2];
 			
 			command[0] = "/opt/Xilinx/12.1/ISE_DS/ISE/bin/lin/xst";
