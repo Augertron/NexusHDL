@@ -1,3 +1,24 @@
+/*
+ * NexusHDL : FPGA/ASIC Build plug-in for Eclipse.
+ * Copyright (C) 2010 Michael Bodenbach
+ *
+ * This file is part of NexusHDL.
+ *
+ * NexusHDL is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * any later version.
+ *
+ * NexusHDL is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with NexusHDL; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA	
+ */
+
 package de.sf.nexushdl.core;
 
 import java.util.ArrayList;
@@ -22,12 +43,12 @@ public class ResourceCollector implements IResourceVisitor {
     /**
      * a collection of all collected resources
      */
-    private Collection m_doxyfiles = new ArrayList();
+    private Collection<IResource> m_hdlfiles = new ArrayList<IResource>();
 
     /**
      * Runs a collector from the workspace resources' root.
      * 
-     * @return  a resource collector containing collected doxfiles
+     * @return  a resource collector containing collected HDL files
      */
     public static ResourceCollector run() throws CoreException {
     	return run( ResourcesPlugin.getWorkspace().getRoot() );
@@ -36,9 +57,9 @@ public class ResourceCollector implements IResourceVisitor {
     /**
      * Runs a collector from the given root resource.
      * 
-     * @param	resource	a resource to search for doxyfiles
+     * @param	resource	a resource to search for HDL files
      * 
-     * @return  a resource collector containing collected doxfiles
+     * @return  a resource collector containing collected HDL files
      */
 	public static ResourceCollector run(IResource root) throws CoreException {
 		ResourceCollector   collector = new ResourceCollector();
@@ -50,9 +71,9 @@ public class ResourceCollector implements IResourceVisitor {
      * @see org.eclipse.core.resources.IResourceVisitor#visit(org.eclipse.core.resources.IResource)
      */
     public boolean visit(IResource resource) throws CoreException {
-        // Determine if the current resource is  doxyfile, and if so, stores the resource
-        if( resource.isAccessible() && Doxyfile.isDoxyfile(resource) == true ) {
-            m_doxyfiles.add( resource );
+        // Determine if the current resource is a HDL file, and if so, stores the resource
+        if( resource.isAccessible() && HDLfile.isHDLfile(resource) == true ) {
+            m_hdlfiles.add( resource );
         }
         return true;
     }
@@ -63,16 +84,16 @@ public class ResourceCollector implements IResourceVisitor {
      * @return	true or false
      */
     public boolean isEmpty() {
-    	return m_doxyfiles.isEmpty();
+    	return m_hdlfiles.isEmpty();
     }
     
     /**
-     * Retrieves the first doxyfile.
+     * Retrieves the first HDL file.
      * 
-     * @return	the first doxyfile, or null when none
+     * @return	the first HDL file, or null when none
      */
     public IFile getFirst() {
-    	return m_doxyfiles.isEmpty() ? null : (IFile) m_doxyfiles.iterator().next();
+    	return m_hdlfiles.isEmpty() ? null : (IFile) m_hdlfiles.iterator().next();
     }
     
     /**
@@ -80,17 +101,17 @@ public class ResourceCollector implements IResourceVisitor {
      * 
      * @return  a collection with all collected doxyfile resources
      */
-    public Collection getDoxyfiles() {
-        return m_doxyfiles;
+    public Collection<IResource> getHDLfiles() {
+        return m_hdlfiles;
     }
     
     /**
-     * Retrieves the number of collected doxyfiles.
+     * Retrieves the number of collected HDL files.
      * 
-     * @return	the number of collected doxyfiles
+     * @return	the number of collected HDL files
      */
     public int getSize() {
-    	return m_doxyfiles.size();
+    	return m_hdlfiles.size();
     }
     
     /**
@@ -98,8 +119,8 @@ public class ResourceCollector implements IResourceVisitor {
      * 
      * @return  an iterator instance
      */
-    public Iterator iterator() {
-        return m_doxyfiles.iterator();
+    public Iterator<IResource> iterator() {
+        return m_hdlfiles.iterator();
     }
 
 }
