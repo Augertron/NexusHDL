@@ -50,7 +50,7 @@ public class HDLfile {
 	    String          name = file.getName();
 		IContentType	contentType = Platform.getContentTypeManager().findContentTypeFor( name );
 		
-		return contentType != null ? contentType.getId().equals("org.gna.eclox.core.doxyfile") : false;
+		return contentType != null ? contentType.getId().equals("de.sf.nexushdl.core.hdlfile") : false;
 	}
 
 }

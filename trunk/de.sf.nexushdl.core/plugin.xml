@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            file-extensions="vhd, vhdl"
+            file-names="*"
+            id="de.sf.nexushdl.core.hdlfile"
+            name="HDLfile"
+            priority="normal">
+      </content-type>
+   </extension>
+
+</plugin>

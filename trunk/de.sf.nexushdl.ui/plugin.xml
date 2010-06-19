@@ -63,11 +63,25 @@
       <editor
             class="de.sf.nexushdl.ui.editors.SynthesisMultiPageEditor"
             contributorClass="de.sf.nexushdl.ui.editors.MultiPageEditorContributor"
-            extensions="xst"
+            extensions="nxs"
             icon="icons/sample.gif"
             id="de.sf.nexushdl.ui.editors.SynthesisMultiPageEditor"
-            name="Synthesis Properties">
+            name="NexusHDL Configuration">
       </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.sf.nexushdl.ui"
+            name="NexusHDLConfig">
+      </category>
+      <wizard
+            category="de.sf.nexushdl.ui"
+            class="de.sf.nexushdl.ui.wizards.NewNexusConfWizard"
+            icon="icons/sample.gif"
+            id="de.sf.nexushdl.ui.wizards.NewNexusConfWizard"
+            name="NexusHDL Configuration Wizard">
+      </wizard>
    </extension>
 
 </plugin>

@@ -50,30 +50,34 @@ public class Synthesis {
 		try {
 			ResourceCollector	collector = root != null ? ResourceCollector.run(root) : ResourceCollector.run();
 			
-			if( collector.isEmpty() == false ) {
+			if( collector.isEmpty() == true ) {
 				System.out.println("No HDL files found!");
 			}
 			else {
-				System.out.println(collector);
-			}
+				System.out.print("HDL souces: ");
+				System.out.println(collector.getSize());
 			
-			String[]	command = new String[2];
+				String[]	command = new String[3];
+				
+				command[0] = "/opt/Xilinx/12.1/ISE_DS/ISE/bin/lin/xst";
+				command[1] = "-ifn";
+				command[2] = "/home/michael/Projects/runtime-EclipseApplication/nexushdl.xst";
+				//command[3] =  "-instyle";
+				//command[4] = file.getLocation().makeAbsolute().toOSString();
+		
 			
-			command[0] = "/opt/Xilinx/12.1/ISE_DS/ISE/bin/lin/xst";
-			command[1] = "--help";
-			//command[2] = file.getLocation().makeAbsolute().toOSString();
+				ProcessBuilder pb = new ProcessBuilder(command);
+				Process p = pb.start();
+				
+			    InputStream is = p.getInputStream();
+	 	        InputStreamReader isr = new InputStreamReader(is);
+			    BufferedReader br = new BufferedReader(isr);
+			    String line;
 	
-			ProcessBuilder pb = new ProcessBuilder(command);
-			Process p = pb.start();
-			
-		    InputStream is = p.getInputStream();
- 	        InputStreamReader isr = new InputStreamReader(is);
-		    BufferedReader br = new BufferedReader(isr);
-		    String line;
-
-		    while ((line = br.readLine()) != null) {
-		      System.out.println(line);
-		    }			
+			    while ((line = br.readLine()) != null) {
+			      System.out.println(line);
+			    }			
+			}
 		 
 		}
 		catch(IOException ioException) {
