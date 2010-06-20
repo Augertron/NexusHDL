@@ -97,9 +97,9 @@ public class ResourceCollector implements IResourceVisitor {
     }
     
     /**
-     * Retrieves the collection with all collected dixyfile resources.
+     * Retrieves the collection with all collected HDL resources.
      * 
-     * @return  a collection with all collected doxyfile resources
+     * @return  a collection with all collected HDL resources
      */
     public Collection<IResource> getHDLfiles() {
         return m_hdlfiles;
@@ -115,7 +115,7 @@ public class ResourceCollector implements IResourceVisitor {
     }
     
     /**
-     * Retrieves the iterator on the collection of collected doxyfile resources.
+     * Retrieves the iterator on the collection of collected HDL resources.
      * 
      * @return  an iterator instance
      */

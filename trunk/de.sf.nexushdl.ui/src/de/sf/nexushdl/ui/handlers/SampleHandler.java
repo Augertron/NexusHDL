@@ -1,5 +1,7 @@
 package de.sf.nexushdl.ui.handlers;
 
+import java.io.IOException;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -42,6 +44,9 @@ public class SampleHandler extends AbstractHandler {
 		catch(InvokeException e) {
 			System.out.println(e.getMessage());
 		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
