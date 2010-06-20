@@ -51,7 +51,7 @@
                id="de.sf.nexushdl.ui.toolbars.sampleToolbar">
             <command
                   commandId="de.sf.nexushdl.ui.commands.startBuild"
-                  icon="icons/sample.gif"
+                  icon="icons/nexushdl16.gif"
                   id="de.sf.nexushdl.ui.toolbars.startBuild"
                   tooltip="Build the Chip">
             </command>
