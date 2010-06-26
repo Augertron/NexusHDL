@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FontDialog;
 import org.eclipse.ui.*;
 import org.eclipse.ui.editors.text.TextEditor;
+import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.ide.IDE;
@@ -94,7 +95,7 @@ public class SynthesisMultiPageEditor extends MultiPageEditorPart implements IRe
 		
 		fontButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent event) {
-				setFont();
+				//setFont();
 			}
 		});
 
@@ -122,6 +123,7 @@ public class SynthesisMultiPageEditor extends MultiPageEditorPart implements IRe
 		createPage0();
 		createPage1();
 		createPage2();
+		//addPage(new FormEditor(), Page1);
 	}
 	/**
 	 * The <code>MultiPageEditorPart</code> implementation of this 
@@ -178,7 +180,7 @@ public class SynthesisMultiPageEditor extends MultiPageEditorPart implements IRe
 	protected void pageChange(int newPageIndex) {
 		super.pageChange(newPageIndex);
 		if (newPageIndex == 2) {
-			sortWords();
+			//sortWords();
 		}
 	}
 	/**
@@ -198,42 +200,5 @@ public class SynthesisMultiPageEditor extends MultiPageEditorPart implements IRe
 				}            
 			});
 		}
-	}
-	/**
-	 * Sets the font related data to be applied to the text in page 2.
-	 */
-	void setFont() {
-		FontDialog fontDialog = new FontDialog(getSite().getShell());
-		fontDialog.setFontList(text.getFont().getFontData());
-		FontData fontData = fontDialog.open();
-		if (fontData != null) {
-			if (font != null)
-				font.dispose();
-			font = new Font(text.getDisplay(), fontData);
-			text.setFont(font);
-		}
-	}
-	/**
-	 * Sorts the words in page 0, and shows them in page 2.
-	 */
-	void sortWords() {
-
-		String editorText =
-			editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
-
-		StringTokenizer tokenizer =
-			new StringTokenizer(editorText, " \t\n\r\f!@#\u0024%^&*()-_=+`~[]{};:'\",.<>/?|\\");
-		ArrayList editorWords = new ArrayList();
-		while (tokenizer.hasMoreTokens()) {
-			editorWords.add(tokenizer.nextToken());
-		}
-
-		Collections.sort(editorWords, Collator.getInstance());
-		StringWriter displayText = new StringWriter();
-		for (int i = 0; i < editorWords.size(); i++) {
-			displayText.write(((String) editorWords.get(i)));
-			displayText.write(System.getProperty("line.separator"));
-		}
-		text.setText(displayText.toString());
 	}
 }
