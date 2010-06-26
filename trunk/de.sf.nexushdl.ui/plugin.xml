@@ -83,5 +83,19 @@
             name="NexusHDL Configuration Wizard">
       </wizard>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="de.sf.nexushdl.ui.preferences.NexusHDLPreferencePage"
+            id="de.sf.nexushdl.ui.preferences.NexusHDLPreferencePage"
+            name="NexusHDL">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="de.sf.nexushdl.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
 
 </plugin>

@@ -28,6 +28,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 
+
 /**
  * blablabla
  * 
@@ -44,7 +45,6 @@ public class Synthesis {
 	private IResource	root = null;			///< The root resource that is that will be starting point for doxyfiles search.
 	private IResource	m_hdlfile;
 	private String		m_hdlfile_extension;
-	private String		m_hdlfile_name;
 	private String		m_hdlfile_path;
 	private String		m_hdlfile_type;
 	private String		m_hdlfile_ws_path;
@@ -103,7 +103,11 @@ public class Synthesis {
 			
 				String[]	command = new String[7];
 				
-				command[0] = "/opt/Xilinx/12.1/ISE_DS/ISE/bin/lin/xst";
+				StringBuffer xilinx_tool_location = new StringBuffer(0);
+				xilinx_tool_location.insert(0, PreferenceConstants.XILINX_PATH);
+				xilinx_tool_location.append("/xst");
+				
+				command[0] = xilinx_tool_location.toString();
 				command[1] = "-ifn";
 				
 				StringBuffer synthesisfile_location = new StringBuffer(0);
