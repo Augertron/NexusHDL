@@ -3,7 +3,7 @@
    <description name="NexusHDL update site" url="http://nexushdl.sourceforge.net/update">
       NexusHDL will help you build you VHDL or Verilog chip design.
    </description>
-   <feature url="features/de.sf.nexushdl_0.1.0.201006201724.jar" id="de.sf.nexushdl" version="0.1.0.201006201724">
+   <feature url="features/de.sf.nexushdl_0.1.0.201007231647.jar" id="de.sf.nexushdl" version="0.1.0.201007231647">
       <category name="NexusHDL"/>
    </feature>
    <category-def name="NexusHDL" label="NexusHDL"/>
